@@ -148,7 +148,6 @@ Response: {
     "booking_date": "2024-03-16T07:51:32.937Z",
     "created_at": "2024-03-16T07:51:32.937Z",
     "updated_at": "2024-03-16T07:51:32.937Z",
-    "__v": 0
   }
 }
 ```
@@ -166,7 +165,7 @@ Response: {
   "success": true,
   "message": "Booking fetched successfully.",
   "data": {
-    "status": "cancelled",
+    "status": "confirmed",
     "_id": "65f54da55408591498b0fdd8",
     "hotel_id": "65f53563ad2547c337ebd8f4",
     "guest_address": "Mauna, Harthua Babhanpur, Sultanpur, Uttar Pradesh - 228171",
@@ -177,9 +176,7 @@ Response: {
     "user_id": "65f54d8a5408591498b0fdd4",
     "booking_date": "2024-03-16T07:43:33.009Z",
     "created_at": "2024-03-16T07:43:33.009Z",
-    "updated_at": "2024-03-16T07:43:33.009Z",
-    "__v": 0,
-    "cancelled_date": "2024-03-16T07:44:24.180Z"
+    "updated_at": "2024-03-16T07:43:33.009Z"
   }
 }
 ```
@@ -209,7 +206,6 @@ Response:{
     "booking_date": "2024-03-16T07:43:33.009Z",
     "created_at": "2024-03-16T07:43:33.009Z",
     "updated_at": "2024-03-16T07:43:33.009Z",
-    "__v": 0,
     "cancelled_date": "2024-03-16T07:52:13.677Z"
   }
 }
