@@ -45,7 +45,7 @@ The REST APIs are categorized into the following: "User Details", "Hotel Details
 ```bash
 Method: POST
 Header: { content-type: application/json }
-URL: http://localhost:3000/api/user/register
+URL: https://ondc-1zib.onrender.com/api/user/register
 Body: {
   "name": "Amit Dubey",
   "email": "amitdubey8888@gmail.com",
@@ -63,7 +63,7 @@ Response: {
 ```bash
 Method: POST
 Header: { content-type: application/json }
-URL: http://localhost:3000/api/user/login
+URL: https://ondc-1zib.onrender.com/api/user/login
 Body: {
   "email": "amitdubey8888@gmail.com",
   "password": "hotel@123"
@@ -80,7 +80,7 @@ Response: {
 ```bash
 Method: GET
 Header: { content-type: application/json, token: "token received from login" }
-URL: http://localhost:3000/api/hotel/search?skip=0&limit=10&name=lalit
+URL: https://ondc-1zib.onrender.com/api/hotel/search?skip=0&limit=10&name=lalit
 Response: {
   "success": true,
   "message": "Hotels fetched successfully.",
@@ -123,7 +123,7 @@ Response: {
 ```bash
 Method: POST
 Header: { content-type: application/json, token: "token received from login" }
-URL: http://localhost:3000/api/booking/save
+URL: https://ondc-1zib.onrender.com/api/booking/save
 Body: {
   "hotel_id": "65f53563ad2547c337ebd8f4",
   "guest_address": "Mauna, Harthua Babhanpur, Sultanpur, Uttar Pradesh - 228171",
@@ -158,7 +158,7 @@ Response: {
 ```bash
 Method: POST
 Header: { content-type: application/json, token: "token received from login" }
-URL: http://localhost:3000/api/booking/view
+URL: https://ondc-1zib.onrender.com/api/booking/view
 Body: {
   "booking_id": "65f54da55408591498b0fdd8"
 }
@@ -189,7 +189,7 @@ Response: {
 ```bash
 Method: GET
 Header: { content-type: application/json, token: "token received from login" }
-URL: http://localhost:3000/api/hotel/booking/cancel/cancel
+URL: https://ondc-1zib.onrender.com/api/hotel/booking/cancel/cancel
 Body: {
   "booking_id": "65f54da55408591498b0fdd8"
 }
