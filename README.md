@@ -13,7 +13,7 @@ This project encompasses the APIs tailored for hotel booking functionalities. Us
 Clone the repository:
 
 ```bash
-$ git clone https://github.com/amitdubeyup/ondc
+$ git clone https://github.com/amitdubeyup/ondc.git
 ```
 
 Go to the project directory:
@@ -79,7 +79,7 @@ Response: {
 
 ```bash
 Method: GET
-Header: { content-type: application/json, token: token }
+Header: { content-type: application/json, token: "token received from login" }
 URL: http://localhost:3000/api/hotel/search?skip=0&limit=10&name=lalit
 Response: {
   "success": true,
@@ -122,7 +122,7 @@ Response: {
 
 ```bash
 Method: POST
-Header: { content-type: application/json, token: token }
+Header: { content-type: application/json, token: "token received from login" }
 URL: http://localhost:3000/api/booking/save
 Body: {
   "hotel_id": "65f53563ad2547c337ebd8f4",
@@ -157,7 +157,7 @@ Response: {
 
 ```bash
 Method: POST
-Header: { content-type: application/json, token: token }
+Header: { content-type: application/json, token: "token received from login" }
 URL: http://localhost:3000/api/booking/view
 Body: {
   "booking_id": "65f54da55408591498b0fdd8"
@@ -188,7 +188,7 @@ Response: {
 
 ```bash
 Method: GET
-Header: { content-type: application/json, token: token }
+Header: { content-type: application/json, token: "token received from login" }
 URL: http://localhost:3000/api/hotel/booking/cancel/cancel
 Body: {
   "booking_id": "65f54da55408591498b0fdd8"
