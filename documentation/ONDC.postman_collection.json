@@ -1,0 +1,1626 @@
+{
+	"info": {
+		"_postman_id": "fc8ddead-a042-4875-8e96-8af4d39f19fe",
+		"name": "ONDC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30685336"
+	},
+	"item": [
+		{
+			"name": "User Register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response has the required fields - success and message\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData).to.have.property('success');\r",
+							"    pm.expect(responseData).to.have.property('message');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\", function () {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Success field is a boolean\", function () {\r",
+							"  const responseData = pm.response.json();\r",
+							"  \r",
+							"  pm.expect(responseData).to.be.an('object');\r",
+							"  pm.expect(responseData.success).to.be.a('boolean');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Message field is a non-empty string\", function () {\r",
+							"  const responseData = pm.response.json();\r",
+							"\r",
+							"  pm.expect(responseData).to.be.an('object');\r",
+							"  pm.expect(responseData.message).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Amit Dubey\",\r\n    \"email\": \"amitdubey8888@gmail.com\",\r\n    \"mobile\": \"7610002325\",\r\n    \"password\": \"hotel@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ondc-1zib.onrender.com/api/user/register",
+					"protocol": "https",
+					"host": [
+						"ondc-1zib",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"user",
+						"register"
+					]
+				},
+				"description": "### Register User\n\nThis endpoint is used to register a new user.\n\n**HTTP Request**  \n`POST localhost:3000/api/user/register`\n\n**Request Body**\n\n- `name`: (text) The name of the user.\n- `email`: (text) The email address of the user.\n- `mobile`: (text) The mobile number of the user.\n- `password`: (text) The password for the user account.\n    \n\n**Response**\n\n- Status: 200\n- Content-Type: application/json\n- `success`: A boolean indicating if the registration was successful.\n- `message`: A message indicating the result of the registration process."
+			},
+			"response": [
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Amit Dubey\",\r\n    \"email\": \"amitdubey8888@gmail.com\",\r\n    \"mobile\": \"7610002325\",\r\n    \"password\": \"hotel@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ondc-1zib.onrender.com/api/user/register",
+							"protocol": "https",
+							"host": [
+								"ondc-1zib",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 16 Mar 2024 08:17:41 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "86534ee7d85231b1-BOM"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5c-WCgXRz6DONz5UybbFxiXnHerO9o\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "e35380d0-22aa-4cd2"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"The user is already registered, please try with a new account.\"\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Amit Dubey\",\r\n    \"email\": \"amitdubey@gmail.com\",\r\n    \"mobile\": \"7610002324\",\r\n    \"password\": \"hotel@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ondc-1zib.onrender.com/api/user/register",
+							"protocol": "https",
+							"host": [
+								"ondc-1zib",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 16 Mar 2024 08:23:36 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8653578e4ebc31b1-BOM"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3a-LMKNdruuDQfMH2Vz8z0Uh+zYKzY\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "137e7a49-d3b7-4bed"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"User registered successfully.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "User Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.expect(pm.response.code).to.equal(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response has the required fields\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData).to.have.property('success');\r",
+							"    pm.expect(responseData).to.have.property('message');\r",
+							"    pm.expect(responseData).to.have.property('token');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Token is not an empty string\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData.token).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Token should not be empty\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\", function () {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Success field is a boolean value\", function () {\r",
+							"  const responseData = pm.response.json();\r",
+							"  \r",
+							"  pm.expect(responseData).to.be.an('object');\r",
+							"  pm.expect(responseData.success).to.be.a('boolean');\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"email\": \"amitdubey8888@gmail.com\",\r\n    \"password\": \"hotel@123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ondc-1zib.onrender.com/api/user/login",
+					"protocol": "https",
+					"host": [
+						"ondc-1zib",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				},
+				"description": "### User Login\n\nThis endpoint is used to authenticate a user and obtain a token for accessing protected resources.\n\n- Method: POST\n- URL: `localhost:3000/api/user/login`\n    \n\n#### Request Body\n\n- Type: Raw (application/json)\n    - email (string, required): The email of the user.\n    - password (string, required): The password of the user.\n\n#### Response\n\n- Status: 200\n- Content-Type: application/json\n- Body:\n    \n    ``` json\n      {\n          \"success\": true,\n          \"message\": \"\",\n          \"token\": \"\"\n      }\n    \n     ```\n    \n    - success (boolean): Indicates if the login was successful.\n    - message (string): Additional information or error message.\n    - token (string): The authentication token for accessing protected resources."
+			},
+			"response": [
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"amitdubey888@gmail.com\",\r\n    \"password\": \"hotel@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ondc-1zib.onrender.com/api/user/login",
+							"protocol": "https",
+							"host": [
+								"ondc-1zib",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 16 Mar 2024 08:24:01 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8653582ebe6031b1-BOM"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4c-M4lx4291Kf2jFWrYcIxr973qcWY\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "7ca0cb06-346f-43b9"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Account does not exist, please register first.\"\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"amitdubey@gmail.com\",\r\n    \"password\": \"hotel@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ondc-1zib.onrender.com/api/user/login",
+							"protocol": "https",
+							"host": [
+								"ondc-1zib",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 16 Mar 2024 08:24:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "865358b388d931b1-BOM"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"157-wqqile6+OeyH72i6R9edvBbg6/E\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "0c4d8b4e-b8b5-43d1"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Logged in successfully.\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjY1ZjU1NzA4ODg1MWNkMDAzZjZkOGNkNSIsIm5hbWUiOiJBbWl0IER1YmV5IiwiZW1haWwiOiJhbWl0ZHViZXlAZ21haWwuY29tIiwibW9iaWxlIjoiNzYxMDAwMjMyNCJ9LCJpYXQiOjE3MTA1Nzc0NjIsImV4cCI6MTcxMDU4MTA2Mn0.3ufvS8eyyLxHXSFU4-lM7A9rjh67YlFgK7p55AolnOY\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Hotel Search",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response has a valid Content-Type header of application/json\", function () {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Validate 'success' field is true\", function () {\r",
+							"  const responseData = pm.response.json();\r",
+							"  \r",
+							"  pm.expect(responseData).to.have.property('success', true);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Data array is present and contains at least one element\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData.data).to.exist.and.to.be.an('array').that.is.not.empty;\r",
+							"});\r",
+							"\r",
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>Name</th>\r",
+							"        <th>Location</th>\r",
+							"        <th>Distance</th>\r",
+							"        <th>Description</th>\r",
+							"        <th>Rating</th>\r",
+							"        <th>Ratings Count</th>\r",
+							"        <th>Price Per Night</th>\r",
+							"        <th>Taxes and Fees</th>\r",
+							"        <th>EMI Option</th>\r",
+							"        <th>Special Offer</th>\r",
+							"        <th>Created At</th>\r",
+							"        <th>Updated At</th>\r",
+							"    </tr>\r",
+							"    \r",
+							"    {{#each response.data}}\r",
+							"        <tr>\r",
+							"            <td>{{name}}</td>\r",
+							"            <td>{{location}}</td>\r",
+							"            <td>{{distance}}</td>\r",
+							"            <td>{{description}}</td>\r",
+							"            <td>{{rating}}</td>\r",
+							"            <td>{{ratings_count}}</td>\r",
+							"            <td>{{price_per_night}}</td>\r",
+							"            <td>{{taxes_and_fees}}</td>\r",
+							"            <td>{{emi_option}}</td>\r",
+							"            <td>{{special_offer}}</td>\r",
+							"            <td>{{created_at}}</td>\r",
+							"            <td>{{updated_at}}</td>\r",
+							"        </tr>\r",
+							"    {{/each}}\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return { response: pm.response.json() }\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ondc-1zib.onrender.com/api/hotel/search?skip=0&limit=10&name=lalit",
+					"protocol": "https",
+					"host": [
+						"ondc-1zib",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"hotel",
+						"search"
+					],
+					"query": [
+						{
+							"key": "skip",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "name",
+							"value": "lalit"
+						}
+					]
+				},
+				"description": "This endpoint makes an HTTP GET request to localhost:3000/api/hotel/search to search for hotels. It accepts query parameters like skip, limit, and name to specify the search criteria. The response will have a status code of 200 and a content type of application/json. The response body will include a boolean \"success\" flag, \"have_prev\" and \"have_next\" flags to indicate the availability of previous and next results, and an array of hotel data objects containing attributes, images, status, ID, name, location, distance, description, rating, ratings count, price per night, taxes and fees, EMI option, special offer, creation and update timestamps."
+			},
+			"response": [
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ondc-1zib.onrender.com/api/hotel/search?skip=rrewre&limit=10&name=lalit",
+							"protocol": "https",
+							"host": [
+								"ondc-1zib",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"hotel",
+								"search"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": "rrewre"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "name",
+									"value": "lalit"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 16 Mar 2024 08:25:13 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "865359f4b9e731b1-BOM"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3a-eMgOlj2ympkInMYHhr20mwyy4rA\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "36bcab61-3845-464c"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Invalid limit or skip value.\"\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ondc-1zib.onrender.com/api/hotel/search?skip=0&limit=10&name=lalit",
+							"protocol": "https",
+							"host": [
+								"ondc-1zib",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"hotel",
+								"search"
+							],
+							"query": [
+								{
+									"key": "skip",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "name",
+									"value": "lalit"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 16 Mar 2024 08:25:29 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "86535a518ed831b1-BOM"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"303-3IYVMy6nJnB2GmOf5GboGjMnbaM\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "6992dc12-763c-47e2"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Hotels fetched successfully.\",\n    \"have_prev\": false,\n    \"have_next\": false,\n    \"data\": [\n        {\n            \"attributes\": [\n                \"Couple Friendly\",\n                \"Book with ₹0 Payment\",\n                \"Guaranteed 10% Discount On F&B Services\"\n            ],\n            \"images\": [\n                \"hotel_image_1\",\n                \"hotel_image_2\",\n                \"hotel_image_3\",\n                \"hotel_image_4\"\n            ],\n            \"status\": 1,\n            \"_id\": \"65f53563ad2547c337ebd8f4\",\n            \"name\": \"The LaLiT New Delhi\",\n            \"location\": \"Connaught Place\",\n            \"distance\": \"2.6 km\",\n            \"description\": \"Prime location, pristine property, pleasant atmosphere\",\n            \"rating\": \"Very Good\",\n            \"ratings_count\": 8492,\n            \"price_per_night\": 13518,\n            \"taxes_and_fees\": 3634,\n            \"emi_option\": \"No CostEMI starts at ₹2,786\",\n            \"special_offer\": \"Exclusive Offer on Citi Credit & Debit Cards. Get Flat INR 2180 off\",\n            \"created_at\": \"2024-03-16T08:25:28.997Z\",\n            \"updated_at\": \"2024-03-16T08:25:28.997Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Hotel Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjY1ZjU0ZDhhNTQwODU5MTQ5OGIwZmRkNCIsIm5hbWUiOiJBbWl0IER1YmV5IiwiZW1haWwiOiJhbWl0ZHViZXk4ODg4QGdtYWlsLmNvbSIsIm1vYmlsZSI6Ijc2MTAwMDIzMjUifSwiaWF0IjoxNzEwNTc5NDQ0LCJleHAiOjE3MTA1ODMwNDR9.axIouEg87mQBH2uMSt-Z8ui7t0Zkg40kHJrx8G1KUew",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"hotel_id\": \"65f53563ad2547c337ebd8f9\",\r\n    \"guest_address\": \"Mauna, Harthua Babhanpur, Sultanpur, Uttar Pradesh - 228171\",\r\n    \"check_in_date\": \"2024-03-16\",\r\n    \"check_out_date\": \"2024-03-17\",\r\n    \"total_price\": \"0\",\r\n    \"number_of_guests\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ondc-1zib.onrender.com/api/booking/save",
+					"protocol": "https",
+					"host": [
+						"ondc-1zib",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"booking",
+						"save"
+					]
+				},
+				"description": "### Save Booking\n\nThis API endpoint allows you to save a booking for a hotel.\n\n#### Request Body\n\n- `hotel_id` (string): The ID of the hotel for which the booking is being made.\n- `guest_address` (string): The address of the guest making the booking.\n- `check_in_date` (string): The date of check-in for the booking.\n- `check_out_date` (string): The date of check-out for the booking.\n- `total_price` (string): The total price of the booking.\n- `number_of_guests` (string): The number of guests for the booking.\n    \n\n#### Response\n\n- `success` (boolean): Indicates if the booking was saved successfully.\n- `message` (string): A message related to the success or failure of the booking.\n- `data` (object): Additional data related to the booking, including status, ID, hotel ID, guest address, check-in and check-out dates, total price, number of guests, user ID, booking date, creation and update timestamps, and version."
+			},
+			"response": [
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjY1ZjU0ZDhhNTQwODU5MTQ5OGIwZmRkNCIsIm5hbWUiOiJBbWl0IER1YmV5IiwiZW1haWwiOiJhbWl0ZHViZXk4ODg4QGdtYWlsLmNvbSIsIm1vYmlsZSI6Ijc2MTAwMDIzMjUifSwiaWF0IjoxNzEwNTc0OTkxLCJleHAiOjE3MTA1Nzg1OTF9.YI_AQVzHrKPDuZGea4oHTo_z_Z0U_uSwN1urH0lA9RQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hotel_id\": \"65f53563ad2547c337ebd8fx\",\r\n    \"guest_address\": \"Mauna, Harthua Babhanpur, Sultanpur, Uttar Pradesh - 228171\",\r\n    \"check_in_date\": \"2024-03-16\",\r\n    \"check_out_date\": \"2024-03-17\",\r\n    \"total_price\": \"0\",\r\n    \"number_of_guests\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ondc-1zib.onrender.com/api/booking/save",
+							"protocol": "https",
+							"host": [
+								"ondc-1zib",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"booking",
+								"save"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 16 Mar 2024 08:26:55 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "86535c6cdf1231b1-BOM"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"75-ZV40N3Zq8wBWuBkQXOrACua/Q90\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "9255aa0f-a35d-4313"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Argument passed in must be a single String of 12 bytes or a string of 24 hex characters\"\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjY1ZjU0ZDhhNTQwODU5MTQ5OGIwZmRkNCIsIm5hbWUiOiJBbWl0IER1YmV5IiwiZW1haWwiOiJhbWl0ZHViZXk4ODg4QGdtYWlsLmNvbSIsIm1vYmlsZSI6Ijc2MTAwMDIzMjUifSwiaWF0IjoxNzEwNTc0OTkxLCJleHAiOjE3MTA1Nzg1OTF9.YI_AQVzHrKPDuZGea4oHTo_z_Z0U_uSwN1urH0lA9RQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"hotel_id\": \"65f53563ad2547c337ebd8f9\",\r\n    \"guest_address\": \"Mauna, Harthua Babhanpur, Sultanpur, Uttar Pradesh - 228171\",\r\n    \"check_in_date\": \"2024-03-16\",\r\n    \"check_out_date\": \"2024-03-17\",\r\n    \"total_price\": \"0\",\r\n    \"number_of_guests\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ondc-1zib.onrender.com/api/booking/save",
+							"protocol": "https",
+							"host": [
+								"ondc-1zib",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"booking",
+								"save"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 16 Mar 2024 08:27:10 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "86535ccd185b31b1-BOM"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"212-pHJGMr4+MfU60g3NtRp+npYsqjM\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "379cdbdc-d755-421b"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Booking completed successfully.\",\n    \"data\": {\n        \"status\": \"confirmed\",\n        \"_id\": \"65f557de8851cd003f6d8ce1\",\n        \"hotel_id\": \"65f53563ad2547c337ebd8f9\",\n        \"guest_address\": \"Mauna, Harthua Babhanpur, Sultanpur, Uttar Pradesh - 228171\",\n        \"check_in_date\": \"2024-03-16T00:00:00.000Z\",\n        \"check_out_date\": \"2024-03-17T00:00:00.000Z\",\n        \"total_price\": 0,\n        \"number_of_guests\": 1,\n        \"user_id\": \"65f54d8a5408591498b0fdd4\",\n        \"booking_date\": \"2024-03-16T08:27:10.396Z\",\n        \"created_at\": \"2024-03-16T08:27:10.396Z\",\n        \"updated_at\": \"2024-03-16T08:27:10.396Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Booking View",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjY1ZjU0ZDhhNTQwODU5MTQ5OGIwZmRkNCIsIm5hbWUiOiJBbWl0IER1YmV5IiwiZW1haWwiOiJhbWl0ZHViZXk4ODg4QGdtYWlsLmNvbSIsIm1vYmlsZSI6Ijc2MTAwMDIzMjUifSwiaWF0IjoxNzEwNTc5NDQ0LCJleHAiOjE3MTA1ODMwNDR9.axIouEg87mQBH2uMSt-Z8ui7t0Zkg40kHJrx8G1KUew",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"booking_id\": \"65f55f11326395003fc9d60f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ondc-1zib.onrender.com/api/booking/view",
+					"protocol": "https",
+					"host": [
+						"ondc-1zib",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"booking",
+						"view"
+					]
+				},
+				"description": "### API Request Description\n\nThis API endpoint is used to retrieve details of a booking by providing the booking ID.\n\n#### Request Body\n\n- `booking_id` (string, required): The ID of the booking for which details are to be retrieved.\n    \n\n#### Response\n\nUpon a successful request, the API returns a JSON object with the following properties:\n\n- `success` (boolean): Indicates if the request was successful.\n- `message` (string): A message related to the request.\n- `data` (object): An object containing the details of the booking, including:\n    - `status` (string): The status of the booking.\n    - `_id` (string): The unique ID of the booking.\n    - `hotel_id` (string): The ID of the hotel associated with the booking.\n    - `guest_address` (string): The address of the guest associated with the booking.\n    - `check_in_date` (string): The date of check-in for the booking.\n    - `check_out_date` (string): The date of check-out for the booking.\n    - `total_price` (number): The total price of the booking.\n    - `number_of_guests` (number): The number of guests for the booking.\n    - `user_id` (string): The ID of the user associated with the booking.\n    - `booking_date` (string): The date of the booking.\n    - `created_at` (string): The creation date of the booking record.\n    - `updated_at` (string): The date of the last update to the booking record.\n    - `__v` (number): Version control field.\n    - `cancelled_date` (string): The date of cancellation for the booking."
+			},
+			"response": [
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjY1ZjU0ZDhhNTQwODU5MTQ5OGIwZmRkNCIsIm5hbWUiOiJBbWl0IER1YmV5IiwiZW1haWwiOiJhbWl0ZHViZXk4ODg4QGdtYWlsLmNvbSIsIm1vYmlsZSI6Ijc2MTAwMDIzMjUifSwiaWF0IjoxNzEwNTc0OTkxLCJleHAiOjE3MTA1Nzg1OTF9.YI_AQVzHrKPDuZGea4oHTo_z_Z0U_uSwN1urH0lA9RQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"booking_id\": \"65f557de8851cd003f6d8ce\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ondc-1zib.onrender.com/api/booking/view",
+							"protocol": "https",
+							"host": [
+								"ondc-1zib",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"booking",
+								"view"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 16 Mar 2024 08:27:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "86535d88de9e31b1-BOM"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-Ejw6tqX84nYL4Uomm2T/VYujYjg\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "1e71e4f0-a01b-4847"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Booking id is invalid.\"\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjY1ZjU0ZDhhNTQwODU5MTQ5OGIwZmRkNCIsIm5hbWUiOiJBbWl0IER1YmV5IiwiZW1haWwiOiJhbWl0ZHViZXk4ODg4QGdtYWlsLmNvbSIsIm1vYmlsZSI6Ijc2MTAwMDIzMjUifSwiaWF0IjoxNzEwNTc0OTkxLCJleHAiOjE3MTA1Nzg1OTF9.YI_AQVzHrKPDuZGea4oHTo_z_Z0U_uSwN1urH0lA9RQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"booking_id\": \"65f557de8851cd003f6d8ce1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ondc-1zib.onrender.com/api/booking/view",
+							"protocol": "https",
+							"host": [
+								"ondc-1zib",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"booking",
+								"view"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 16 Mar 2024 08:27:54 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "86535de0496f31b1-BOM"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"210-UXaki9yfJktgLzAC5Z+EOuxgTos\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "9631669b-5f55-4c60"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Booking fetched successfully.\",\n    \"data\": {\n        \"status\": \"confirmed\",\n        \"_id\": \"65f557de8851cd003f6d8ce1\",\n        \"hotel_id\": \"65f53563ad2547c337ebd8f9\",\n        \"guest_address\": \"Mauna, Harthua Babhanpur, Sultanpur, Uttar Pradesh - 228171\",\n        \"check_in_date\": \"2024-03-16T00:00:00.000Z\",\n        \"check_out_date\": \"2024-03-17T00:00:00.000Z\",\n        \"total_price\": 0,\n        \"number_of_guests\": 1,\n        \"user_id\": \"65f54d8a5408591498b0fdd4\",\n        \"booking_date\": \"2024-03-16T08:27:10.396Z\",\n        \"created_at\": \"2024-03-16T08:27:10.396Z\",\n        \"updated_at\": \"2024-03-16T08:27:10.396Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Booking Cancel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjY1ZjU0ZDhhNTQwODU5MTQ5OGIwZmRkNCIsIm5hbWUiOiJBbWl0IER1YmV5IiwiZW1haWwiOiJhbWl0ZHViZXk4ODg4QGdtYWlsLmNvbSIsIm1vYmlsZSI6Ijc2MTAwMDIzMjUifSwiaWF0IjoxNzEwNTc5NDQ0LCJleHAiOjE3MTA1ODMwNDR9.axIouEg87mQBH2uMSt-Z8ui7t0Zkg40kHJrx8G1KUew",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"booking_id\": \"65f55f11326395003fc9d60f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ondc-1zib.onrender.com/api/booking/cancel",
+					"protocol": "https",
+					"host": [
+						"ondc-1zib",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"booking",
+						"cancel"
+					]
+				},
+				"description": "### Cancel Booking\n\nThis endpoint is used to cancel a booking.\n\n#### Request Body\n\n- booking_id (text, required): The ID of the booking to be cancelled.\n    \n\n#### Response\n\n- Status: 200\n- Content-Type: application/json\n- success (boolean): Indicates if the cancellation was successful.\n- message (string): A message related to the cancellation.\n- data (object): Contains details of the cancelled booking, including status, hotel ID, guest address, check-in and check-out dates, total price, number of guests, user ID, booking date, created and updated timestamps, and cancelled date."
+			},
+			"response": [
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjY1ZjU0ZDhhNTQwODU5MTQ5OGIwZmRkNCIsIm5hbWUiOiJBbWl0IER1YmV5IiwiZW1haWwiOiJhbWl0ZHViZXk4ODg4QGdtYWlsLmNvbSIsIm1vYmlsZSI6Ijc2MTAwMDIzMjUifSwiaWF0IjoxNzEwNTc0OTkxLCJleHAiOjE3MTA1Nzg1OTF9.YI_AQVzHrKPDuZGea4oHTo_z_Z0U_uSwN1urH0lA9RQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"booking_id\": \"65f557de8851cd003f6d8ce\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ondc-1zib.onrender.com/api/booking/cancel",
+							"protocol": "https",
+							"host": [
+								"ondc-1zib",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"booking",
+								"cancel"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 16 Mar 2024 08:28:17 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "86535e6dc9ac31b1-BOM"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-Ejw6tqX84nYL4Uomm2T/VYujYjg\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "e9d0d149-9a82-42d3"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": false,\n    \"message\": \"Booking id is invalid.\"\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjY1ZjU0ZDhhNTQwODU5MTQ5OGIwZmRkNCIsIm5hbWUiOiJBbWl0IER1YmV5IiwiZW1haWwiOiJhbWl0ZHViZXk4ODg4QGdtYWlsLmNvbSIsIm1vYmlsZSI6Ijc2MTAwMDIzMjUifSwiaWF0IjoxNzEwNTc0OTkxLCJleHAiOjE3MTA1Nzg1OTF9.YI_AQVzHrKPDuZGea4oHTo_z_Z0U_uSwN1urH0lA9RQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"booking_id\": \"65f557de8851cd003f6d8ce1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://ondc-1zib.onrender.com/api/booking/cancel",
+							"protocol": "https",
+							"host": [
+								"ondc-1zib",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"booking",
+								"cancel"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 16 Mar 2024 08:28:30 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "86535ebebeaf31b1-BOM"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"23e-rpmefW46VNh2aRb9rEdnoRx7fXM\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "df433cb0-63d2-465b"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Booking cancelled successfully.\",\n    \"data\": {\n        \"status\": \"cancelled\",\n        \"_id\": \"65f557de8851cd003f6d8ce1\",\n        \"hotel_id\": \"65f53563ad2547c337ebd8f9\",\n        \"guest_address\": \"Mauna, Harthua Babhanpur, Sultanpur, Uttar Pradesh - 228171\",\n        \"check_in_date\": \"2024-03-16T00:00:00.000Z\",\n        \"check_out_date\": \"2024-03-17T00:00:00.000Z\",\n        \"total_price\": 0,\n        \"number_of_guests\": 1,\n        \"user_id\": \"65f54d8a5408591498b0fdd4\",\n        \"booking_date\": \"2024-03-16T08:27:10.396Z\",\n        \"created_at\": \"2024-03-16T08:27:10.396Z\",\n        \"updated_at\": \"2024-03-16T08:27:10.396Z\",\n        \"__v\": 0,\n        \"cancelled_date\": \"2024-03-16T08:28:29.943Z\"\n    }\n}"
+				}
+			]
+		}
+	]
+}
