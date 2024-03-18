@@ -186,7 +186,7 @@ Response: {
 ```bash
 Method: GET
 Header: { content-type: application/json, token: "token received from login" }
-URL: https://ondc-1zib.onrender.com/api/hotel/booking/cancel/cancel
+URL: https://ondc-1zib.onrender.com/api/booking/cancel
 Body: {
   "booking_id": "65f54da55408591498b0fdd8"
 }
